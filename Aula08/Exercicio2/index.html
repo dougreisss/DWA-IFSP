@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Senha</title>
+</head>
+
+<body>
+    <h2>Validação de Senha</h2>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" placeholder="Digite a senha">
+    <button onclick="validarSenha()">Verificar</button>
+
+    <p id="resultado-senha"></p>
+
+    <script>
+        function validarSenha() {
+            const senha = document.getElementById('senha').value;
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            const resultado = regex.test(senha);
+            document.getElementById('resultado-senha').textContent = resultado
+                ? "Senha válida"
+                : "Senha inválida";
+        }
+    </script>
+</body>
+
+</html>

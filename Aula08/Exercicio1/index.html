@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de E-mail e Senha</title>
+</head>
+<body>
+    <h2>Validação de E-mail</h2>
+    <label for="email">E-mail:</label>
+    <input type="text" id="email" placeholder="Digite o e-mail">
+    <button onclick="validarEmail()">Verificar</button>
+    
+    <p id="resultado-email"></p>
+
+    <script>
+        function validarEmail() {
+            const email = document.getElementById('email').value;
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const resultado = regex.test(email);
+            document.getElementById('resultado-email').textContent = resultado 
+                ? "E-mail é válido" 
+                : "E-mail não é válido";
+        }
+    </script>
+</body>
+</html>
