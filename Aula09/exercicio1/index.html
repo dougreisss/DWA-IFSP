@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 09 - Exercicio 1</title>
+    <script>
+        function onClickAlert() {
+            alert("Mensagem!");
+        }
+
+        function onSubmitAlert() {
+            alert("Obrigado por enviar o formulário!");
+            return false; 
+        }
+
+        function onMouseOverAlert(element) {
+            element.innerText = "Você está sobre o botão!";
+        }
+
+        function onMouseOutAlert(element) {
+            element.innerText = "Você retirou o mouse do botão!";
+        }
+
+        function onFocusAlert(element) {
+            element.placeholder = "Digite algo aqui...";
+        }
+
+        function onBlurAlert(element) {
+            element.placeholder = "Campo obrigatório!";
+        }
+
+        function onChangeAlert() {
+            if (confirm("Deseja mesmo mudar de sexo?")) {
+                alert("Mudança confirmada!");
+            }
+        }
+
+        function onLoadAlert() {
+            alert("A página foi montada!");
+        }
+
+        function onUnloadAlert() {
+            alert("Você está saindo da página!");
+        }
+    </script>
+</head>
+<body onload="onLoadAlert()" onunload="onUnloadAlert()">
+    <h1>Eventos</h1>
+
+    <h2>onClick</h2>
+    <button onclick="onClickAlert()">Clique no botão</button>
+    <p><a href="#" onclick="onClickAlert()">Clique no Link</a></p>
+
+    <h2>onSubmit</h2>
+    <form onsubmit="return onSubmitAlert()">
+        <input type="text" placeholder="Digite algo">
+        <button type="submit">Enviar para outra página</button>
+    </form>
+
+    <h2>onMouseOver e onMouseOut</h2>
+    <p><a href="#" onmouseover="onMouseOverAlert(this)" onmouseout="onMouseOutAlert(this)">Passe o mouse aqui</a></p>
+    <button onmouseover="onMouseOverAlert(this)" onmouseout="onMouseOutAlert(this)">Passe o mouse no botão</button>
+
+    <h2>onFocus e onBlur</h2>
+    <label for="matricula">Matrícula:</label>
+    <input id="matricula" type="text" onfocus="onFocusAlert(this)" onblur="onBlurAlert(this)">
+    <label for="nome">Nome:</label>
+    <input id="nome" type="text" onfocus="onFocusAlert(this)" onblur="onBlurAlert(this)">
+
+    <h2>onChange</h2>
+    <label for="sexo">Sexo:</label>
+    <select id="sexo" onchange="onChangeAlert()">
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+    </select>
+</body>
+</html>
